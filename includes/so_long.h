@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:23:28 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 01:35:05 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_game
 	void	*wall;
 	void	*init;
 	void	*win;
+	char	*filename;
 }			t_game;
 
 //map.c
@@ -52,5 +53,8 @@ t_game	control(t_game game, char *filename);
 //flood_fill.c
 void	check_extension(t_game game, char *filename);
 void	flood_fill(t_game game);
+
+//initiliaze.c
+void initiliaze_game(t_game *game);
 
 #endif

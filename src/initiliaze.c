@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   initiliaze.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:35:08 by emir             ###   ########.fr       */
+/*   Created: 2025/03/22 01:30:41 by emir              #+#    #+#             */
+/*   Updated: 2025/03/22 01:35:03 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int main(int argc, char **argv)
+void initiliaze_game(t_game *game)
 {
-	t_game	map = {0};
-
-	if (argc == 2)
-	{
-		map =  read_map(argv);
-	}
-	if (!map.map[0])
-		ft_error(map, "Map file is empty!\n");
-	map = control(map, argv[1]);
-	return (0);
+	game->map = NULL;
+	game->column = 0;
+	game->line = 0;
+	game->move = 0;
+	game->x = 0;
+	game->y = 0;
+	game->e = 0;
+	game->c = 0;
+	game->player = NULL;
+	game->door = NULL;
+	game->coin = NULL;
+	game->soil = NULL;
+	game->wall = NULL;
+	game->init = NULL;
+	game->win = NULL;
+	game->filename = NULL;
 }

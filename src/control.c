@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/21 05:43:25 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/21 19:12:30 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	is_rectangle(t_game game)
 		while (game.map[i][j])
 			j++;
 		if (j != game.line)
-			ft_error("Map is not a rectangle!\n");
+			ft_error(game, "Map is not a rectangle!\n");
 		i++;
 	}
 }
@@ -51,7 +51,7 @@ static void	wall_check(t_game game)
 	int	j;
 
 	if (game.column < 3 || game.line < 3)
-		ft_error("Map is too small!\n");
+		ft_error(game, "Map is too small!\n");
 	i = 0;
 	while (game.map[i])
 	{
@@ -61,7 +61,7 @@ static void	wall_check(t_game game)
 			if (i == 0 || i == game.column || j == 0 || j == game.line - 1)
 			{
 				if (game.map[i][j] != '1')
-					ft_error("Map is not surrounded by walls!\n");
+					ft_error(game, "Map is not surrounded by walls!\n");
 			}
 			j++;
 		}
@@ -90,18 +90,22 @@ static t_game	letter_check(t_game game)
 			else if (game.map[i][j] == 'P')
 				game.p++;
 			else if (game.map[i][j] != '0' && game.map[i][j] != '1')
-				ft_error("Map contains invalid characters!\n");
+				ft_error(game, "Map contains invalid characters!\n");
 			j++;
 		}
 		i++;
 	}
 	if (!(game.p == 1 && game.c >= 1 && game.e == 1))
-		ft_error("Invalid amount of player, exit, or collectible!\n");
+		ft_error(game, "Invalid amount of player, exit, or collectible!\n");
 	return (game);
 }
 
 t_game	control(t_game game)
 {
+	int	len;
+
+	len = 0;
+	
 	game = map_size(game);
 	is_rectangle(game);
 	wall_check(game);

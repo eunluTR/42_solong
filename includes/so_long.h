@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/21 05:42:34 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/21 19:07:31 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_game
 t_game read_map(char **map);
 
 //error.c
-void	ft_error(char *str);
+void	ft_error(t_game game, char *str);
 
 //control.c
 t_game	control(t_game game);

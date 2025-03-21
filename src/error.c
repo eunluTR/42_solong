@@ -6,13 +6,13 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:39:43 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/21 19:06:16 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 01:25:19 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void free_map(t_game game)
+void free_map(t_game game)
 {
 	int	i;
 

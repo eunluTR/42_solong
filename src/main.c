@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/21 19:07:12 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 01:20:35 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 	}
 	if (!map.map[0])
 		ft_error(map, "Map file is empty!\n");
-	map = control(map);
+	map = control(map, argv[1]);
 	return (0);
 }

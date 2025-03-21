@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/21 19:12:30 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 01:27:51 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,17 @@ static t_game	letter_check(t_game game)
 	return (game);
 }
 
-t_game	control(t_game game)
+t_game	control(t_game game, char *filename)
 {
 	int	len;
 
 	len = 0;
-	
+	if (!game.map[0])
+		ft_error(game, "Map file is empty!\n");
+	len = ft_strlen(game.map[0]);
+	if (len < 4)
+		ft_error(game, "Invalid map name!\n");
+	check_extension(game, filename);
 	game = map_size(game);
 	is_rectangle(game);
 	wall_check(game);

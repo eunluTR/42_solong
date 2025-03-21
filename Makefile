@@ -14,6 +14,7 @@ SRC_FILES 	= 		$(GNL_DIR)/get_next_line.c \
 				  	$(SRC_DIR)/map.c \
 				  	$(SRC_DIR)/error.c \
 				  	$(SRC_DIR)/control.c \
+					$(SRC_DIR)/flood_fill.c \
 				  
 
 OBJ_FILES	= $(SRC_FILES:.c=.o)

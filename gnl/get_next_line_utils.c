@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sencetin <sencetin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 15:45:25 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 21:19:48 by eunlu            ###   ########.fr       */
+/*   Created: 2024/12/15 20:39:22 by sencetin          #+#    #+#             */
+/*   Updated: 2025/03/20 15:02:10 by sencetin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	check_newline(char *str)
+int	check_nl(char *str)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ void	*ft_free(void *ptr)
 	return (NULL);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen2(char *str)
 {
 	int	i;
 
@@ -46,15 +46,15 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	char	*ptr;
 	size_t	len_s1;
 	size_t	len_s2;
 	size_t	i;
 
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
+	len_s1 = ft_strlen2(s1);
+	len_s2 = ft_strlen2(s2);
 	ptr = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!ptr)
 		return (ft_free(s1));

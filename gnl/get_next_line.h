@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sencetin <sencetin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 15:45:22 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 21:26:56 by eunlu            ###   ########.fr       */
+/*   Created: 2024/12/15 20:39:35 by sencetin          #+#    #+#             */
+/*   Updated: 2025/03/20 15:02:39 by sencetin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 # endif
 
 # include <stdlib.h>
+#include "../libft/libft.h"
 
-int		check_newline(char *str);
+int		check_nl(char *str);
 void	*ft_free(void *ptr);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
+int     ft_strlen2(char *str);
+char	*ft_strjoin2(char *s1, char *s2);
 
-char	*ft_read_file(int fd, char *str);
-char	*ft_get_line(char *str);
-char	*ft_shift_line(char *str);
+char	*read_file(int fd, char *str);
+char	*before_nl(char *str);
+char	*after_nl(char *str);
 char	*get_next_line(int fd);
 
 #endif

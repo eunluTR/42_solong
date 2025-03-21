@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 21:43:27 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/21 05:43:17 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 #include <stdio.h>
 
 t_game read_map(char **map)

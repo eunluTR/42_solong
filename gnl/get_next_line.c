@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sencetin <sencetin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 15:45:19 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 20:43:36 by eunlu            ###   ########.fr       */
+/*   Created: 2024/12/15 20:39:32 by sencetin          #+#    #+#             */
+/*   Updated: 2025/03/20 15:04:24 by sencetin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "./libft/libft.h"
 #include <unistd.h>
 
-char	*ft_read_file(int fd, char *str)
+char	*read_file(int fd, char *str)
 {
 	char	*buffer;
 	int		bytes_read;
@@ -22,7 +21,7 @@ char	*ft_read_file(int fd, char *str)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	while (!check_newline(str))
+	while (!check_nl(str))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -34,7 +33,7 @@ char	*ft_read_file(int fd, char *str)
 		if (bytes_read == 0)
 			break ;
 		buffer[bytes_read] = '\0';
-		str = ft_strjoin(str, buffer);
+		str = ft_strjoin2(str, buffer);
 		if (!str)
 			return (ft_free(buffer));
 	}
@@ -42,7 +41,7 @@ char	*ft_read_file(int fd, char *str)
 	return (str);
 }
 
-char	*ft_get_line(char *str)
+char	*before_nl(char *str)
 {
 	int		len;
 	char	*line;
@@ -50,7 +49,7 @@ char	*ft_get_line(char *str)
 
 	if (!str[0])
 		return (NULL);
-	is_newline = check_newline(str);
+	is_newline = check_nl(str);
 	len = 0;
 	while (str[len] && str[len] != '\n')
 		++len;
@@ -69,7 +68,7 @@ char	*ft_get_line(char *str)
 	return (line);
 }
 
-char	*ft_shift_line(char *str)
+char	*after_nl(char *str)
 {
 	int		len;
 	int		i;
@@ -80,7 +79,7 @@ char	*ft_shift_line(char *str)
 		++len;
 	if (!str[len])
 		return (ft_free(str));
-	new_str = malloc(sizeof(char) * (ft_strlen(str) - len + 1));
+	new_str = malloc(sizeof(char) * (ft_strlen2(str) - len + 1));
 	if (!new_str)
 		return (ft_free(str));
 	++len;
@@ -103,10 +102,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	str = ft_read_file(fd, str);
+	str = read_file(fd, str);
 	if (!str)
 		return (NULL);
-	line = ft_get_line(str);
-	str = ft_shift_line(str);
+	line = before_nl(str);
+	str = after_nl(str);
 	return (line);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 22:19:00 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/21 05:42:34 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include "./libft/libft.h"
-#include "get_next_line.h"
+#include "../libft/libft.h"
+#include "../gnl/get_next_line.h"
 
 typedef struct s_game
 {

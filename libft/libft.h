@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:24:32 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 21:29:37 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/21 05:13:56 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include "../get_next_line.h"
+# include "../gnl/get_next_line.h"
 
 typedef struct s_list
 {
@@ -63,5 +63,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+
 
 #endif

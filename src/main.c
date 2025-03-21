@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 22:19:59 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/21 05:42:47 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 #include <stdio.h>
 
 int main(int argc, char **argv)

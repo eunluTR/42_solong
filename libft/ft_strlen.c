@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 21:39:43 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 21:46:06 by eunlu            ###   ########.fr       */
+/*   Created: 2025/03/21 04:54:55 by emir              #+#    #+#             */
+/*   Updated: 2025/03/21 04:55:11 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(char *str)
+size_t	ft_strlen(const char *s)
 {
-	ft_putstr_fd("Error: ", 2);
-	ft_putstr_fd(str, 2);
-	exit (0);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
+/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/19 22:21:01 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/21 05:43:25 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 static t_game	map_size(t_game game)
 {

@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:35:05 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 17:16:04 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include "../libft/libft.h"
 #include "../gnl/get_next_line.h"
+#include "../minilibx-linux/mlx.h"
 
 typedef struct s_game
 {
@@ -44,7 +45,7 @@ typedef struct s_game
 t_game read_map(char **map);
 
 //error.c
-void	free_map(t_game game);
+void	free_map(char **map);
 void	ft_error(t_game game, char *str);
 
 //control.c
@@ -54,7 +55,15 @@ t_game	control(t_game game, char *filename);
 void	check_extension(t_game game, char *filename);
 void	flood_fill(t_game game);
 
-//initiliaze.c
+//init.c
 void initiliaze_game(t_game *game);
+void	init_window(t_game *game);
+void	load_textures(t_game *game);
+void	render_map(t_game *game);
+
+//key_hook.c
+void initialize_player_position(t_game *game);
+int	key_event(int keycode, t_game *game);
+int close_window(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:16:07 by emir              #+#    #+#             */
-/*   Updated: 2025/03/22 01:35:11 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 16:18:46 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,6 @@ void	check_extension(t_game game, char *filename)
 	}
 }
 
-static void	free_maps(char **map) //degistir bunu
-{
-	int	i;
-
-	i = -1;
-	while (map[++i])
-		free(map[i]);
-	free(map);
-}
-
 void	flood_fill(t_game game)
 {
 	char **map;
@@ -101,5 +91,5 @@ void	flood_fill(t_game game)
 	map = copy_map(game);
 	check_adj(game, game.x, game.y);
 	check_collectable(game);
-	free_maps(map);
+	free_map(map);
 }

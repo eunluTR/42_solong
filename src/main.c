@@ -6,7 +6,7 @@
 /*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:35:08 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/22 17:02:36 by emir             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,21 @@
 
 int main(int argc, char **argv)
 {
-	t_game	map = {0};
+	t_game	game = {0};
 
 	if (argc == 2)
 	{
-		map =  read_map(argv);
+		game =  read_map(argv);
 	}
-	if (!map.map[0])
-		ft_error(map, "Map file is empty!\n");
-	map = control(map, argv[1]);
+	if (!game.map[0])
+		ft_error(game, "Map file is empty!\n");
+	game = control(game, argv[1]);
+	init_window(&game);
+	load_textures(&game);
+	render_map(&game);
+	mlx_hook(game.win, 2, 1, key_event, &game);
+	mlx_hook(game.win, 17, 0, close_window, &game);
+	mlx_loop(game.init);
+
 	return (0);
 }

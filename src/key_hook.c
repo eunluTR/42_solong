@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 13:43:45 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:24:26 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ static void	move_count(int move)
 
 void initialize_player_position(t_game *game)
 {
-    int i, j;
+    int i;
+	int j;
 
-    for (i = 0; game->map[i]; i++)
+	i = 0;
+	j = 0;
+    while (game->map[i])
     {
-        for (j = 0; game->map[i][j]; j++)
+        j = 0;
+        while (game->map[i][j])
         {
             if (game->map[i][j] == 'P')
             {
@@ -33,10 +37,13 @@ void initialize_player_position(t_game *game)
                 game->y = i;
                 return;
             }
+            ++j;
         }
+        ++i;
     }
     ft_error(*game, "Error: no player!\n");
 }
+
 
 static void	update_player_position(t_game *game, int dx, int dy)
 {

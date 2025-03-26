@@ -6,12 +6,11 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:24:26 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:27:10 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
 
 static void	move_count(int move)
 {
@@ -54,12 +53,14 @@ static void	update_player_position(t_game *game, int dx, int dy)
 		if (game->map[game->y + dy][game->x + dx] == 'E' && game->c == 0)
 		{
 			move_count(game->move);
-            printf("Congratulations! You have completed the game with %d moves!\n", game->move);
-            game->move++;
+			ft_putstr_fd("Congratulations! You have completed the game with ", 1);
+			ft_putnbr_fd(game->move, 1);
+			ft_putstr_fd(" moves!\n", 1);
+			game->move++;
 			close_window(game);
 			return ;
 		}
-		else if (game->map[game->y + dy][game->x + dx] == 'E'&& game->c > 0)
+		else if (game->map[game->y + dy][game->x + dx] == 'E' && game->c > 0)
 			return ;
 		move_count(game->move);
 		game->move++;

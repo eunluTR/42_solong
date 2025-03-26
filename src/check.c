@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 09:00:41 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 09:54:59 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 11:21:11 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_game	check_letters(t_game game)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (game.map[i])
 	{
@@ -87,6 +87,7 @@ t_game	check_letters(t_game game)
 		ft_error(game, "Invalid amount of player, exit, or collectible!\n");
 	return (game);
 }
+
 void	check_argc(int argc)
 {
 	if (argc != 2)

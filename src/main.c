@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 10:12:48 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 11:01:13 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int main(int argc, char **argv)
 	game = control(game);
 	init_window(&game);
 	render_map(&game);
-	mlx_hook(game.win, 2, 1, key_event, &game);
-	mlx_hook(game.win, 17, 0, close_window, &game);
-	mlx_loop(game.init);
+	setup_events(&game);
 	return (0);
 }

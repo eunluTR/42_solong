@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 01:30:41 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 10:13:28 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 11:00:45 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void init_game(t_game *game)
 	game->y = 0;
 	game->e = 0;
 	game->c = 0;
+	game->p = 0;
 	game->player = NULL;
 	game->door = NULL;
 	game->coin = NULL;
@@ -29,7 +30,6 @@ void init_game(t_game *game)
 	game->wall = NULL;
 	game->init = NULL;
 	game->win = NULL;
-	game->filename = NULL;
 }
 
 void	init_window(t_game *game)
@@ -51,7 +51,6 @@ void	init_window(t_game *game)
 	if (!game->player || !game->wall || !game->coin || !game->door || !game->soil)
 		ft_error(*game, "Texture loading failed!\n");
 }
-
 
 void	render_map(t_game *game)
 {
@@ -78,4 +77,11 @@ void	render_map(t_game *game)
 		}
 		i++;
 	}
+}
+
+void	setup_events(t_game *game)
+{
+	mlx_hook(game->win, KEY_PRESS, KEY_PRESS_MASK, key_event, game);
+	mlx_hook(game->win, DESTROY_NOTIFY, NO_MASK, close_window, game);
+	mlx_loop(game->init);
 }

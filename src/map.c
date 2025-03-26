@@ -6,12 +6,38 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 09:49:15 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 12:14:33 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include <stdio.h>
+
+void	is_newline(char *line)
+{
+	int	len;
+	int	i;
+
+	len = ft_strlen(line);
+	i = 0;
+	while (i < len - 1)
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
+		{
+			ft_putstr_fd("Error: Invalid map! (consecutive newlines)\n", 2);
+			free(line);
+			exit(1);
+		}
+		i++;
+	}
+	if (line[0] == '\n' || line[len - 1] == '\n')
+	{
+		ft_putstr_fd("Error: Invalid map!\n", 2);
+		free(line);
+		exit(1);
+	}
+}
+
 
 t_game read_map(t_game game, char **map)
 {
@@ -35,6 +61,7 @@ t_game read_map(t_game game, char **map)
 	}
 	free (str);
 	fd = close(fd);
+	is_newline(line);
 	game.map = ft_split(line, '\n');
 	free (line);
 	initialize_player_position(&game);

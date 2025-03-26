@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 09:41:55 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 11:21:38 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,18 @@ static t_game	map_size(t_game game)
 	return (game);
 }
 
+void	check_extension(char *filename)
+{
+	int	len;
+
+	len = ft_strlen(filename);
+	if (len < 4 || ft_strncmp(&filename[len - 4], ".ber", 4))
+	{
+		ft_putstr_fd("Error: Invalid file extension!\n", 2);
+		exit (1);
+	}
+}
+
 t_game	control(t_game game)
 {
 	game = check_empty_map(game);
@@ -35,5 +47,6 @@ t_game	control(t_game game)
 	check_rectangle(game);
 	check_walls(game);
 	game = check_letters(game);
+	// flood_fill(game);
 	return (game);
 }

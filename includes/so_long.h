@@ -6,12 +6,17 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 10:12:39 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 11:00:59 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+#define NO_MASK 0
+#define KEY_PRESS_MASK 1
+#define KEY_PRESS 2
+#define DESTROY_NOTIFY 17
 
 #include <unistd.h>
 #include <fcntl.h>
@@ -38,7 +43,6 @@ typedef struct s_game
 	void	*wall;
 	void	*init;
 	void	*win;
-	char	*filename;
 }			t_game;
 
 //map.c
@@ -59,6 +63,7 @@ void	flood_fill(t_game game);
 void	init_game(t_game *game);
 void	init_window(t_game *game);
 void	render_map(t_game *game);
+void	setup_events(t_game *game);
 
 //key_hook.c
 void initialize_player_position(t_game *game);

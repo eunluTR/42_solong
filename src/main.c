@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 17:02:36 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 08:51:19 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 int main(int argc, char **argv)
 {
-	t_game	game = {0};
+	t_game	game;
 
-	if (argc == 2)
-	{
-		game =  read_map(argv);
-	}
-	if (!game.map[0])
-		ft_error(game, "Map file is empty!\n");
-	game = control(game, argv[1]);
+	if (argc != 2)
+		return (0);
+	check_extension(argv[1]);
+	initiliaze_game(&game);
+	game =  read_map(game, argv);
+	game = control(game);
 	init_window(&game);
 	load_textures(&game);
 	render_map(&game);

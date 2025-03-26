@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:35:13 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 08:25:01 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static t_game	letter_check(t_game game)
 	return (game);
 }
 
-t_game	control(t_game game, char *filename)
+t_game	control(t_game game)
 {
 	int	len;
 
@@ -110,7 +110,6 @@ t_game	control(t_game game, char *filename)
 	len = ft_strlen(game.map[0]);
 	if (len < 4)
 		ft_error(game, "Invalid map name!\n");
-	check_extension(game, filename);
 	game = map_size(game);
 	is_rectangle(game);
 	wall_check(game);

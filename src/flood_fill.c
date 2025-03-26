@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:16:07 by emir              #+#    #+#             */
-/*   Updated: 2025/03/22 16:18:46 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 08:26:34 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ static void check_collectable(t_game game)
 	}
 }
 
-void	check_extension(t_game game, char *filename)
+void	check_extension(char *filename)
 {
 	int	len;
 
 	len = ft_strlen(filename);
 	if (len < 4 || ft_strncmp(&filename[len - 4], ".ber", 4))
 	{
-		ft_error(game, "Error: Invalid map extension!\n");
-		exit(1);
+		ft_putstr_fd("Error: Invalid file extension!\n", 2);
+		exit (1);
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 17:16:04 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 08:25:12 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,21 @@ typedef struct s_game
 }			t_game;
 
 //map.c
-t_game read_map(char **map);
+t_game read_map(t_game game, char **map);
 
 //error.c
 void	free_map(char **map);
 void	ft_error(t_game game, char *str);
 
 //control.c
-t_game	control(t_game game, char *filename);
+t_game	control(t_game game);
 
 //flood_fill.c
-void	check_extension(t_game game, char *filename);
+void	check_extension(char *filename);
 void	flood_fill(t_game game);
 
 //init.c
-void initiliaze_game(t_game *game);
+void	initiliaze_game(t_game *game);
 void	init_window(t_game *game);
 void	load_textures(t_game *game);
 void	render_map(t_game *game);

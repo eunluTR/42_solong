@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/22 01:20:37 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 07:56:29 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 #include <stdio.h>
 
-t_game read_map(char **map)
+t_game read_map(t_game game, char **map)
 {
-	t_game	maps;
 	char	*str;
 	char	*line;
 	int		fd;
@@ -33,7 +32,7 @@ t_game read_map(char **map)
 	}
 	free (str);
 	fd = close(fd);
-	maps.map = ft_split(line, '\n');
+	game.map = ft_split(line, '\n');
 	free (line);
-	return (maps);
+	return (game);
 }

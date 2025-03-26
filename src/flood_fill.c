@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 19:16:07 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 13:10:21 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:33:05 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ static void	flood_fill(char **map, int x, int y)
 {
 	if (map[y][x] == '1' || map[y][x] == 'X')
 		return ;
-    else if (map[y][x] == 'E')
-    {
-        map[y][x] = 'X';
-        return ;
-    }
+	else if (map[y][x] == 'E')
+	{
+		map[y][x] = 'X';
+		return ;
+	}
 	map[y][x] = 'X';
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
@@ -73,7 +73,7 @@ static void	check_valid(t_game game, char **map)
 void	check_path(t_game game)
 {
 	char	**map;
-	
+
 	if (game.x < 0 || game.y < 0)
 		ft_error(game, "Player position can not find!\n");
 	map = copy_map(game);

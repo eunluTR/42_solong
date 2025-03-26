@@ -6,13 +6,13 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 01:30:41 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:19:02 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:48:41 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void init_game(t_game *game)
+void	init_game(t_game *game)
 {
 	game->map = NULL;
 	game->column = 0;
@@ -40,39 +40,47 @@ void	init_window(t_game *game)
 	game->init = mlx_init();
 	if (!game->init)
 		ft_error(*game, "MLX initialization failed!\n");
-	game->win = mlx_new_window(game->init, game->line * x, game->column * x, "Banana Republic");
+	game->win = mlx_new_window(game->init, game->line * x,
+			game->column * x, "Banana Republic");
 	if (!game->win)
 		ft_error(*game, "Window creation failed!\n");
-	game->player = mlx_xpm_file_to_image(game->init, "textures/player.xpm", &x, &x);
-	game->wall = mlx_xpm_file_to_image(game->init, "textures/wall.xpm", &x, &x);
-	game->coin = mlx_xpm_file_to_image(game->init, "textures/collectible.xpm", &x, &x);
-	game->door = mlx_xpm_file_to_image(game->init, "textures/exit.xpm", &x, &x);
-	game->soil = mlx_xpm_file_to_image(game->init, "textures/floor.xpm", &x, &x);
-	if (!game->player || !game->wall || !game->coin || !game->door || !game->soil)
+	game->player = mlx_xpm_file_to_image(game->init,
+			"textures/player.xpm", &x, &x);
+	game->wall = mlx_xpm_file_to_image(game->init,
+			"textures/wall.xpm", &x, &x);
+	game->coin = mlx_xpm_file_to_image(game->init,
+			"textures/collectible.xpm", &x, &x);
+	game->door = mlx_xpm_file_to_image(game->init,
+			"textures/exit.xpm", &x, &x);
+	game->soil = mlx_xpm_file_to_image(game->init,
+			"textures/floor.xpm", &x, &x);
+	if (!game->player || !game->wall
+		||!game->coin || !game->door || !game->soil)
 		ft_error(*game, "Texture loading failed!\n");
 }
 
-void	render_map(t_game *game)
+void	render_map(t_game g)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (game->map[i])
+	while (g.map[i])
 	{
 		j = 0;
-		while (game->map[i][j])
+		while (g.map[i][j])
 		{
-			if (game->map[i][j] == '1')
-				mlx_put_image_to_window(game->init, game->win, game->wall, j * 64, i * 64);
-			else if (game->map[i][j] == '0')
-				mlx_put_image_to_window(game->init, game->win, game->soil, j * 64, i * 64);
-			else if (game->map[i][j] == 'C')
-				mlx_put_image_to_window(game->init, game->win, game->coin, j * 64, i * 64);
-			else if (game->map[i][j] == 'E')
-				mlx_put_image_to_window(game->init, game->win, game->door, j * 64, i * 64);
-			else if (game->map[i][j] == 'P')
-				mlx_put_image_to_window(game->init, game->win, game->player, j * 64, i * 64);
+			if (g.map[i][j] == '1')
+				mlx_put_image_to_window(g.init, g.win, g.wall, j * 64, i * 64);
+			else if (g.map[i][j] == '0')
+				mlx_put_image_to_window(g.init, g.win, g.soil, j * 64, i * 64);
+			else if (g.map[i][j] == 'C')
+				mlx_put_image_to_window(g.init, g.win, g.coin, j * 64, i * 64);
+			else if (g.map[i][j] == 'E')
+				mlx_put_image_to_window(g.init, g.win, g.door, j * 64, i * 64);
+			else if (g.map[i][j] == 'P')
+				mlx_put_image_to_window(g.init,
+					g.win, g.player, j * 64, i * 64);
 			j++;
 		}
 		i++;

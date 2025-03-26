@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 13:06:08 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:51:41 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	is_newline(char *line)
 	}
 }
 
-t_game read_map(t_game game, char **map)
+t_game	read_map(t_game game, char **map)
 {
 	char	*str;
 	char	*line;
 	int		fd;
 	char	*tmp;
-	
+
 	fd = open(map[1], O_RDONLY);
 	if (fd < 0)
 		exit (0);

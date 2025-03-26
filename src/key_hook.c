@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:27:10 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:51:06 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,30 @@ static void	move_count(int move)
 	write(1, "\n", 1);
 }
 
-void initialize_player_position(t_game *game)
+void	initialize_player_position(t_game *game)
 {
-    int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-    while (game->map[i])
-    {
-        j = 0;
-        while (game->map[i][j])
-        {
-            if (game->map[i][j] == 'P')
-            {
-                game->x = j;
-                game->y = i;
-                return;
-            }
-            ++j;
-        }
-        ++i;
-    }
-    ft_error(*game, "Error: no player!\n");
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+			{
+				game->x = j;
+				game->y = i;
+				return ;
+			}
+			++j;
+		}
+		++i;
+	}
+	ft_error(*game, "Error: no player!\n");
 }
-
 
 static void	update_player_position(t_game *game, int dx, int dy)
 {
@@ -53,7 +52,8 @@ static void	update_player_position(t_game *game, int dx, int dy)
 		if (game->map[game->y + dy][game->x + dx] == 'E' && game->c == 0)
 		{
 			move_count(game->move);
-			ft_putstr_fd("Congratulations! You have completed the game with ", 1);
+			ft_putstr_fd("Congratulations! You have completed the game with ",
+				1);
 			ft_putnbr_fd(game->move, 1);
 			ft_putstr_fd(" moves!\n", 1);
 			game->move++;
@@ -74,7 +74,7 @@ static void	update_player_position(t_game *game, int dx, int dy)
 
 int	key_event(int keycode, t_game *game)
 {
-	if (keycode == 65307) /* ESC */
+	if (keycode == 65307)
 		close_window(game);
 	else if (keycode == 119 || keycode == 65362)
 		update_player_position(game, 0, -1);
@@ -87,7 +87,7 @@ int	key_event(int keycode, t_game *game)
 	return (0);
 }
 
-int close_window(t_game *game)
+void	close_window(t_game *game)
 {
 	if (game->player)
 		mlx_destroy_image(game->init, game->player);
@@ -108,5 +108,4 @@ int close_window(t_game *game)
 	}
 	free_map(game->map);
 	exit(0);
-    return (0);
 }

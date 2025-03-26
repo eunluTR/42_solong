@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 12:22:13 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:31:23 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_game	map_size(t_game game)
 {
 	int	line;
-	int column;
+	int	column;
 
 	line = 0;
 	column = 0;

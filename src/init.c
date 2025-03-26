@@ -6,13 +6,13 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 01:30:41 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 09:50:37 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 10:13:28 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void initiliaze_game(t_game *game)
+void init_game(t_game *game)
 {
 	game->map = NULL;
 	game->column = 0;
@@ -30,34 +30,28 @@ void initiliaze_game(t_game *game)
 	game->init = NULL;
 	game->win = NULL;
 	game->filename = NULL;
-	
 }
 
 void	init_window(t_game *game)
 {
+	int	x;
+
+	x = 64;
 	game->init = mlx_init();
 	if (!game->init)
 		ft_error(*game, "MLX initialization failed!\n");
-	game->win = mlx_new_window(game->init, game->line * 64, game->column * 64, "so_long");
+	game->win = mlx_new_window(game->init, game->line * x, game->column * x, "Banana Republic");
 	if (!game->win)
 		ft_error(*game, "Window creation failed!\n");
-}
-
-void	load_textures(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = 64;
-	y = 64;
-	game->player = mlx_xpm_file_to_image(game->init, "textures/player.xpm", &x, &y);
-	game->wall = mlx_xpm_file_to_image(game->init, "textures/wall.xpm", &x, &y);
-	game->coin = mlx_xpm_file_to_image(game->init, "textures/carrot64.xpm", &x, &y);
-	game->door = mlx_xpm_file_to_image(game->init, "textures/exit.xpm", &x, &y);
-	game->soil = mlx_xpm_file_to_image(game->init, "textures/grass64.xpm", &x, &y);
+	game->player = mlx_xpm_file_to_image(game->init, "textures/player.xpm", &x, &x);
+	game->wall = mlx_xpm_file_to_image(game->init, "textures/wall.xpm", &x, &x);
+	game->coin = mlx_xpm_file_to_image(game->init, "textures/carrot64.xpm", &x, &x);
+	game->door = mlx_xpm_file_to_image(game->init, "textures/exit.xpm", &x, &x);
+	game->soil = mlx_xpm_file_to_image(game->init, "textures/grass64.xpm", &x, &x);
 	if (!game->player || !game->wall || !game->coin || !game->door || !game->soil)
 		ft_error(*game, "Texture loading failed!\n");
 }
+
 
 void	render_map(t_game *game)
 {

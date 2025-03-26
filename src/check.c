@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 09:00:41 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 09:32:37 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 09:54:59 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ t_game	check_letters(t_game game)
 	int	i;
 	int	j;
 	
-	game.c = 0;
-	game.e = 0;
-	game.p = 0;
 	i = 0;
 	while (game.map[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 09:32:46 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 10:12:39 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ void	check_extension(char *filename);
 void	flood_fill(t_game game);
 
 //init.c
-void	initiliaze_game(t_game *game);
+void	init_game(t_game *game);
 void	init_window(t_game *game);
-void	load_textures(t_game *game);
 void	render_map(t_game *game);
 
 //key_hook.c

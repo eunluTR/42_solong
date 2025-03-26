@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 07:56:29 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 09:49:15 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_game read_map(t_game game, char **map)
 	char	*str;
 	char	*line;
 	int		fd;
+	char	*tmp;
 	
 	fd = open(map[1], O_RDONLY);
 	if (fd < 0)
@@ -26,13 +27,16 @@ t_game read_map(t_game game, char **map)
 	str = get_next_line(fd);
 	while (str)
 	{
+		tmp = line;
 		line = ft_strjoin(line, str);
 		free(str);
+		free(tmp);
 		str = get_next_line(fd);
 	}
 	free (str);
 	fd = close(fd);
 	game.map = ft_split(line, '\n');
 	free (line);
+	initialize_player_position(&game);
 	return (game);
 }

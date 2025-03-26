@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 08:25:12 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 09:32:46 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,12 @@ void	render_map(t_game *game);
 void initialize_player_position(t_game *game);
 int	key_event(int keycode, t_game *game);
 int close_window(t_game *game);
+
+//check.c
+t_game	check_empty_map(t_game game);
+void	check_rectangle(t_game game);
+void	check_walls(t_game game);
+t_game	check_letters(t_game game);
+void	check_argc(int argc);
 
 #endif

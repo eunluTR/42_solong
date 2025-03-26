@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emir <emir@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/22 17:03:04 by emir             ###   ########.fr       */
+/*   Updated: 2025/03/26 09:51:36 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void initialize_player_position(t_game *game)
             {
                 game->x = j;
                 game->y = i;
-                printf("Start Position: x=%d, y=%d\n", game->x, game->y);
                 return;
             }
         }

@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:51:06 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:55:29 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ static void	update_player_position(t_game *game, int dx, int dy)
 
 int	key_event(int keycode, t_game *game)
 {
-	if (keycode == 65307)
+	if (keycode == ESC)
 		close_window(game);
-	else if (keycode == 119 || keycode == 65362)
+	else if (keycode == W || keycode == UP)
 		update_player_position(game, 0, -1);
-	else if (keycode == 115 || keycode == 65364)
+	else if (keycode == S || keycode == DOWN)
 		update_player_position(game, 0, 1);
-	else if (keycode == 97 || keycode == 65361)
+	else if (keycode == A || keycode == LEFT)
 		update_player_position(game, -1, 0);
-	else if (keycode == 100 || keycode == 65363)
+	else if (keycode == D || keycode == RIGHT)
 		update_player_position(game, 1, 0);
 	return (0);
 }

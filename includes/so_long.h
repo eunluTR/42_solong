@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 12:18:47 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:54:50 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 #define KEY_PRESS_MASK 1
 #define KEY_PRESS 2
 #define DESTROY_NOTIFY 17
+
+#define ESC 65307
+#define W 119
+#define A 97
+#define S 115
+#define D 100
+#define UP 65362
+#define DOWN 65364
+#define LEFT 65361
+#define RIGHT 65363
 
 #include <unistd.h>
 #include <fcntl.h>

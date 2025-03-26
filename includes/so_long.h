@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 14:54:50 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:56:15 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,32 +55,25 @@ typedef struct s_game
 	void	*win;
 }			t_game;
 
-//map.c
 t_game read_map(t_game game, char **map);
 
-//error.c
 void	free_map(char **map);
 void	ft_error(t_game game, char *str);
 
-//control.c
 t_game	control(t_game game);
 
-//flood_fill.c
 void	check_extension(char *filename);
 void	check_path(t_game game);
 
-//init.c
 void	init_game(t_game *game);
 void	init_window(t_game *game);
 void	render_map(t_game *game);
 void	setup_events(t_game *game);
 
-//key_hook.c
 void initialize_player_position(t_game *game);
 int	key_event(int keycode, t_game *game);
 int close_window(t_game *game);
 
-//check.c
 t_game	check_empty_map(t_game game);
 void	check_rectangle(t_game game);
 void	check_walls(t_game game);

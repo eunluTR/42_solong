@@ -6,34 +6,34 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:16:14 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 14:56:15 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:59:35 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#define NO_MASK 0
-#define KEY_PRESS_MASK 1
-#define KEY_PRESS 2
-#define DESTROY_NOTIFY 17
+# define NO_MASK 0
+# define KEY_PRESS_MASK 1
+# define KEY_PRESS 2
+# define DESTROY_NOTIFY 17
 
-#define ESC 65307
-#define W 119
-#define A 97
-#define S 115
-#define D 100
-#define UP 65362
-#define DOWN 65364
-#define LEFT 65361
-#define RIGHT 65363
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include "../libft/libft.h"
-#include "../gnl/get_next_line.h"
-#include "../minilibx-linux/mlx.h"
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include "../libft/libft.h"
+# include "../gnl/get_next_line.h"
+# include "../minilibx-linux/mlx.h"
 
 typedef struct s_game
 {
@@ -55,7 +55,7 @@ typedef struct s_game
 	void	*win;
 }			t_game;
 
-t_game read_map(t_game game, char **map);
+t_game	read_map(t_game game, char **map);
 
 void	free_map(char **map);
 void	ft_error(t_game game, char *str);
@@ -67,12 +67,12 @@ void	check_path(t_game game);
 
 void	init_game(t_game *game);
 void	init_window(t_game *game);
-void	render_map(t_game *game);
+void	render_map(t_game g);
 void	setup_events(t_game *game);
 
-void initialize_player_position(t_game *game);
-int	key_event(int keycode, t_game *game);
-int close_window(t_game *game);
+void	initialize_player_position(t_game *game);
+int		key_event(int keycode, t_game *game);
+int		close_window(t_game *game);
 
 t_game	check_empty_map(t_game game);
 void	check_rectangle(t_game game);

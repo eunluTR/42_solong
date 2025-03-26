@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 01:30:41 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:48:41 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 15:18:51 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	init_window(t_game *game)
 		ft_error(*game, "Window creation failed!\n");
 	game->player = mlx_xpm_file_to_image(game->init,
 			"textures/player.xpm", &x, &x);
-	game->wall = mlx_xpm_file_to_image(game->init,
-			"textures/wall.xpm", &x, &x);
+	game->wall = mlx_xpm_file_to_image(game->init, "textures/wall.xpm", &x, &x);
 	game->coin = mlx_xpm_file_to_image(game->init,
 			"textures/collectible.xpm", &x, &x);
 	game->door = mlx_xpm_file_to_image(game->init,
@@ -56,7 +55,10 @@ void	init_window(t_game *game)
 			"textures/floor.xpm", &x, &x);
 	if (!game->player || !game->wall
 		||!game->coin || !game->door || !game->soil)
-		ft_error(*game, "Texture loading failed!\n");
+	{
+		ft_putstr_fd("Error: Texture loading failed!\n", 2);
+		close_window(game);
+	}
 }
 
 void	render_map(t_game g)

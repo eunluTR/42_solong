@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:55:29 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 14:58:03 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	update_player_position(t_game *game, int dx, int dy)
 		game->map[game->y + dy][game->x + dx] = 'P';
 		game->y += dy;
 		game->x += dx;
-		render_map(game);
+		render_map(*game);
 	}
 }
 
@@ -87,7 +87,7 @@ int	key_event(int keycode, t_game *game)
 	return (0);
 }
 
-void	close_window(t_game *game)
+int	close_window(t_game *game)
 {
 	if (game->player)
 		mlx_destroy_image(game->init, game->player);
@@ -108,4 +108,5 @@ void	close_window(t_game *game)
 	}
 	free_map(game->map);
 	exit(0);
+	return (0);
 }

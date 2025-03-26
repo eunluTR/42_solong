@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:15:13 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 14:53:17 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 15:00:06 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	game = read_map(game, argv);
 	game = control(game);
 	init_window(&game);
-	render_map(&game);
+	render_map(game);
 	setup_events(&game);
 	return (0);
 }

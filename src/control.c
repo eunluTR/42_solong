@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 21:51:42 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 11:21:38 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 12:22:13 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ t_game	control(t_game game)
 	check_rectangle(game);
 	check_walls(game);
 	game = check_letters(game);
-	// flood_fill(game);
+	check_path(game);
 	return (game);
 }

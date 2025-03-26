@@ -6,12 +6,11 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 12:14:33 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 13:06:08 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-#include <stdio.h>
 
 void	is_newline(char *line)
 {
@@ -37,7 +36,6 @@ void	is_newline(char *line)
 		exit(1);
 	}
 }
-
 
 t_game read_map(t_game game, char **map)
 {

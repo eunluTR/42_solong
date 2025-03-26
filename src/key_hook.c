@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 09:51:36 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 13:43:45 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static void	update_player_position(t_game *game, int dx, int dy)
 			game->c--;
 		if (game->map[game->y + dy][game->x + dx] == 'E' && game->c == 0)
 		{
+			move_count(game->move);
             printf("Congratulations! You have completed the game with %d moves!\n", game->move);
             game->move++;
 			close_window(game);

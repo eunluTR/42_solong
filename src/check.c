@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 09:00:41 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 14:30:55 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 15:58:52 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_walls(t_game game)
 		j = 0;
 		while (game.map[i][j])
 		{
-			if (i == 0 || i == game.column || j == 0 || j == game.line - 1)
+			if (i == 0 || i == game.column - 1 || j == 0 || j == game.line - 1)
 			{
 				if (game.map[i][j] != '1')
 					ft_error(game, "Map is not surrounded by walls!\n");

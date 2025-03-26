@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:35:29 by eunlu             #+#    #+#             */
-/*   Updated: 2025/03/26 14:51:41 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 15:54:31 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	is_newline(char *line)
 		}
 		i++;
 	}
-	if (line[0] == '\n' || line[len - 1] == '\n')
+	if (line[0] == '\n' || len == 0 || line[len - 1] == '\n')
 	{
 		ft_putstr_fd("Error: Invalid map!\n", 2);
 		free(line);
@@ -46,7 +46,7 @@ t_game	read_map(t_game game, char **map)
 
 	fd = open(map[1], O_RDONLY);
 	if (fd < 0)
-		exit (0);
+		exit (1);
 	line = ft_strdup("");
 	str = get_next_line(fd);
 	while (str)

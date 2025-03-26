@@ -6,7 +6,7 @@
 /*   By: eunlu <eunlu@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 17:00:12 by emir              #+#    #+#             */
-/*   Updated: 2025/03/26 14:58:03 by eunlu            ###   ########.fr       */
+/*   Updated: 2025/03/26 15:50:27 by eunlu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	initialize_player_position(t_game *game)
 		}
 		++i;
 	}
-	ft_error(*game, "Error: no player!\n");
 }
 
 static void	update_player_position(t_game *game, int dx, int dy)
